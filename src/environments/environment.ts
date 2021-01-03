@@ -2,9 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// export const environment = {
+//   production: false
+// };
+
 export const environment = {
-  production: false
-};
+  production: false,
+  firebaseConfig: {
+    apiKey: "AIzaSyDm4lC2mCPA4oTsKxybSsaenYfnqRgps7o",
+    authDomain: "squares-game-f8641.firebaseapp.com",
+    databaseURL: "https://squares-game-f8641-default-rtdb.firebaseio.com",
+    projectId: "squares-game-f8641",
+    storageBucket: "squares-game-f8641.appspot.com",
+    messagingSenderId: "538127582738"
+   }};
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-square',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./square.component.css']
 })
 export class SquareComponent implements OnInit {
+
+  @Output() colorChange = new EventEmitter<string>()
 
   backgroundColor = this.getColor()
 
@@ -30,6 +32,7 @@ export class SquareComponent implements OnInit {
   setColor() {
 
     this.backgroundColor = this.getColor()
+    this.colorChange.emit(this.backgroundColor)
 
   }
 
