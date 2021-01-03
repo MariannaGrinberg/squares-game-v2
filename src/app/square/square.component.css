@@ -1,0 +1,6 @@
+.square {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    transition: all 1.15s ease;
+}
