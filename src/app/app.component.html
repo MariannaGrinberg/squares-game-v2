@@ -1,11 +1,20 @@
 <div class="grid">
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
-  <app-square (colorChange) = "onChange($event)"></app-square>
+  <!-- <app-square  *ngFor="let square of squares"
+  (colorChange) = "onChange($event)"  
+  [color] = "square.color"
+  >
+</app-square> -->
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+  <app-square (colorChange) = "onChange($event)" [ArrayOfSquares] = "squares" *ngIf="squares?.length > 0"></app-square>
+
+
+
 </div>
+
