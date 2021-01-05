@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { pluck, map } from 'rxjs/operators';
+
+// Square Interface
 
 interface square {
   [index: number]: { color: string; }[]
@@ -13,22 +14,23 @@ export class FirestoreService {
 
   constructor( private firestore: AngularFirestore) {}
 
-  save(square: Object){ 
-    // let data = {color, id}
+  // Set Square Color On Given Square ID 
 
+  save(square: Object){ 
     return new Promise<any>((resolve, reject) => { 
        this.firestore
-           .collection("collectionNameHere").doc(square.id + '').set({color: square.color})
-          //  .add(square)
+           .collection("Squares").doc(square.id + '').set({color: square.color})
            .then(
                res => {}, 
                err => reject(err)
            )
-    })}
+    })
+  }
 
+  // Get from firebase db collection and send it to app module as observable
     exampleGetCollection(){ 
       return this.firestore
-            .collection<square>("collectionNameHere")
+            .collection<square>("Squares")
              .valueChanges()
 
   }

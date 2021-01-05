@@ -8,31 +8,35 @@ import { FirestoreService} from './firestore.service'
 })
 export class AppComponent {
 
-
   squares = []
+
+  // On Componnet Init Read DB Content
 
   ngOnInit(): void {
 
     this.readFromDB()
+
   }
 
+  // C'tor
 
   constructor(private firestore: FirestoreService){}
 
+
+  // Call Firbase Service
   onChange(square: Object){
 
     this.firestore.save(square)
-    this.firestore.exampleGetCollection().subscribe((squares)=>{
-    this.squares = squares
-      // console.log(squares)
-    })
-    
-    //  setTimeout(()=>{},2000)
+    this.readFromDB()
+
   }
+
+  // Read Squares from Firebabse DB Services
 
   readFromDB(){
 
     this.firestore.exampleGetCollection().subscribe((squares)=>{
+     
       this.squares = squares
 
     })

@@ -7,6 +7,7 @@ import { SquareComponent } from './square/square.component';
 import { environment } from "src/environments/environment";
 import { AngularFireModule } from "@angular/fire";
 
+
 @NgModule({
   declarations: [
     AppComponent,

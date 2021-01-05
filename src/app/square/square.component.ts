@@ -1,58 +1,34 @@
-import { Component, OnInit, EventEmitter, Output, Input} from '@angular/core';
+import { SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'app-square',
   templateUrl: './square.component.html',
   styleUrls: ['./square.component.css']
 })
-export class SquareComponent implements OnInit {
+
+export class SquareComponent {
 
   @Output() colorChange = new EventEmitter<Object>()
   @Input() ArrayOfSquares = []
 
+  // Generate Square ID.
+  
   static squares = 0; 
   id = ++SquareComponent.squares 
-  // backgroundColor = this.getColor()
 
   backgroundColor = ''
 
+  // C'tor
+
   constructor() { }
 
-  ngOnInit(): void {
+  // On value change
 
-
-    // this.emitSquare()
-
-    this.initSquars()
-    // setTimeout(()=>{  this.initSquars(),2000})
-
-    // if (!this.color) {
-
-      // this.backgroundColor = this.getColor()
-      // this.emitSquare()
-
-    // }
-
-    // else {
-
-      // setTimeout(()=>{} ,5000)
-
-      // console.log(this.color)
-      // // console.log(this.id)
-      // this.backgroundColor = this.color.color
-
-      
-
-    // }
-
-    // If Database Is Empty
-      // Get Random Colors & Fill The Squares
-
-    // Else
-      // Get The Colors From The DB
-
+  ngOnChanges(changes: SimpleChanges) {
     
-
+    this.backgroundColor = changes.ArrayOfSquares.currentValue[this.id -1].color
+    
   }
 
    // getColor
@@ -73,23 +49,13 @@ export class SquareComponent implements OnInit {
 
     this.backgroundColor = this.getColor()
     this.emitSquare()
-    console.log(this.ArrayOfSquares)
-    // this.backgroundColor = this.color
-  }
-
-  initSquars(){
-
-    // Get The Colors From The DB
-
-    console.log(this.ArrayOfSquares)
-    this.backgroundColor = this.ArrayOfSquares[this.id - 1].color
-
-
+    
   }
 
   // emitSquare
 
-  emitSquare() {
+  emitSquare = () => {
+    
     this.colorChange.emit({ id: this.id, color: this.backgroundColor })
 
   }
